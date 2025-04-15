@@ -1,0 +1,31 @@
+import React from 'react'
+import { testimonials } from '../constants'
+import TitleHeader from '../components/TitleHeader'
+import GlowCard from '../components/GlowCard'
+
+const Testimonials = () => {
+  return (
+   <section id='testimonials' className='flex-center section-padding'>
+    <div className='w-full h-full md:px-10 px-5'>
+        <TitleHeader title={"What people Say About Me?"} sub={"⭐ Client Feedback Highlights"} />
+        <div className='lg:columns-3 md:columns-2 columns-1 mt-16'>
+            {testimonials.map((testimonial)=>(
+                <GlowCard card={testimonial} key={testimonial.name}>
+                    <div className='flex items-center gap-3'>
+                        <div className=''>
+                            <img src={testimonial.imgPath} alt={testimonial.name} />
+                        </div>
+                        <div>
+                            <p>{testimonial.name}</p>
+                            <p className='text-white-50'>{testimonial.mentions}</p>
+                        </div>
+                    </div>
+                </GlowCard>
+            ))}
+        </div>
+    </div>
+   </section>
+  )
+}
+
+export default Testimonials
